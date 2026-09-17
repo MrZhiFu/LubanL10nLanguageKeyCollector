@@ -32,7 +32,7 @@
 
 ```batch
 -c cs-l10n-key ^
--x cs-l10n-key.outputCodeDir=自己工程配置表导出目录的上一级目录/LanguageKey ^
+-x cs-l10n-key.outputCodeDir=自己工程配置表导出目录的上一级目录/L10nKey ^
 ```
 
 完整示例：
@@ -45,7 +45,7 @@ dotnet ./Tools/Luban/Luban.dll ^
     -c cs-l10n-key ^
     -x outputDataDir=../Unity/Assets/Bundles/Config ^
     -x cs-bin.outputCodeDir=../Unity/Assets/Scripts/Hotfix/Config/Generate ^
-    -x cs-l10n-key.outputCodeDir=../Unity/Assets/Scripts/Hotfix/Config/LanguageKey ^
+    -x cs-l10n-key.outputCodeDir=../Unity/Assets/Scripts/Hotfix/Config/L10nKey ^
     --conf ./Luban.conf
 ```
 
@@ -103,7 +103,7 @@ dotnet ./Tools/Luban/Luban.dll ^
         var isCodeField = table.ValueTType.DefBean.ExportFields.FirstOrDefault(f => f.Name == "is_code");
         if (isCodeField == null)
         {
-            throw new Exception($"本地化表:'{table.Name}' 缺少 'is_code' 列！所有本地化表必须声明 is_code(bool) 列，用于标记该 key 是否导出到 LanguageKey 类");
+            throw new Exception($"本地化表:'{table.Name}' 缺少 'is_code' 列！所有本地化表必须声明 is_code(bool) 列，用于标记该 key 是否导出到 L10nKey 类");
         }
 
         // 获取表数据
@@ -128,7 +128,7 @@ namespace YourNamespace
     /// <summary>
     /// 本地化多语言Key列表
     /// </summary>
-    public static class LanguageKey
+    public static class L10nKey
     {
         /// <summary>
         /// 欢迎文本
